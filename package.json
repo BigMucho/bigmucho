@@ -5,7 +5,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "example"
+    "example",
+    "apps/*"
   ],
   "husky": {
     "hooks": {
@@ -41,7 +42,10 @@
     "analyze-fiber": "cd packages/fiber && npm publish --dry-run",
     "analyze-test": "cd packages/test-renderer && npm publish --dry-run",
     "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "format:fix": "prettier --write .",
+    "bigmucho": "yarn workspace @apps/bigmucho dev",
+    "bigmucho:build": "yarn workspace @apps/bigmucho build",
+    "bigmucho:preview": "yarn workspace @apps/bigmucho preview"
   },
   "devDependencies": {
     "@babel/core": "7.17.8",

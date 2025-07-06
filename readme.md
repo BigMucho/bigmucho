@@ -282,6 +282,24 @@ A small selection of companies and projects relying on three-fiber.
 - [`triplex`](https://triplex.dev) (editor) — [video](https://twitter.com/_douges/status/1708859381369221539)
 - [`theatrejs`](https://www.theatrejs.com) (editor) — [video](https://twitter.com/0xca0a/status/1566838823170068480)
 
+# Project Structure
+
+This is a monorepo containing the core library and related packages:
+
+```
+react-three-fiber/
+├── packages/
+│   ├── fiber/          # Core @react-three/fiber library
+│   ├── test-renderer/  # Testing utilities
+│   └── eslint-plugin/  # Performance linting rules
+├── example/            # Feature demos
+├── apps/               # Example applications
+│   └── bigmucho/      # Starter app with Vite
+└── docs/              # Documentation
+```
+
+See [GETTING_STARTED.md](./GETTING_STARTED.md) for development setup.
+
 # How to contribute
 
 If you like this project, please consider helping out. All contributions are welcome as well as donations to [Opencollective](https://opencollective.com/react-three-fiber), or in crypto `BTC: 36fuguTPxGCNnYZSRdgdh6Ea94brCAjMbH`, `ETH: 0x6E3f79Ea1d0dcedeb33D3fC6c34d2B1f156F2682`.

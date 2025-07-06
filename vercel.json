@@ -1,5 +1,7 @@
 {
-  "buildCommand": "yarn install && yarn build && cd example && yarn build",
-  "outputDirectory": "example/dist",
-  "installCommand": "yarn install"
+  "buildCommand": "yarn install && yarn workspace @apps/bigmucho build",
+  "outputDirectory": "apps/bigmucho/dist",
+  "installCommand": "yarn install",
+  "framework": null,
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet ."
 }
