@@ -294,11 +294,22 @@ react-three-fiber/
 │   └── eslint-plugin/  # Performance linting rules
 ├── example/            # Feature demos
 ├── apps/               # Example applications
-│   └── bigmucho/      # Starter app with Vite
+│   └── bigmucho/      # Comprehensive R3F showcase (6 interactive demos)
 └── docs/              # Documentation
 ```
 
-See [GETTING_STARTED.md](./GETTING_STARTED.md) for development setup.
+### BigMucho Showcase App
+
+The `apps/bigmucho` directory contains a comprehensive React Three Fiber showcase demonstrating:
+
+- **Basic Concepts**: Core hooks, materials, lighting
+- **Interactions**: Event handling, drag & drop, animations
+- **Performance**: Instanced meshes, LOD, on-demand rendering
+- **Asset Loading**: Textures, GLTF models, environment maps
+- **Custom Shaders**: GLSL shaders with real-time controls
+- **Advanced Rendering**: Portals, layers, render targets
+
+See [apps/bigmucho/README.md](./apps/bigmucho/README.md) for more details or [GETTING_STARTED.md](./GETTING_STARTED.md) for development setup.
 
 # How to contribute
 

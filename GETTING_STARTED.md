@@ -10,6 +10,7 @@ react-three-fiber is a React renderer for Three.js that allows you to build 3D s
 - **@react-three/test-renderer** - Testing utilities for R3F components
 - **@react-three/eslint-plugin** - Custom ESLint rules for performance
 - **example** - Demo application showcasing various features
+- **apps/bigmucho** - Comprehensive showcase with 6 interactive demos
 
 ## Prerequisites
 
@@ -46,6 +47,28 @@ yarn examples
 ```
 
 This starts the example app at `http://localhost:5173` with hot module replacement.
+
+### Running the BigMucho Showcase
+
+To run the comprehensive showcase app with 6 interactive demos:
+
+```bash
+# From the root directory
+yarn workspace @apps/bigmucho dev
+
+# Or navigate to the app directly
+cd apps/bigmucho
+yarn dev
+```
+
+Visit `http://localhost:3000` to explore:
+
+- Basic R3F concepts (hooks, materials, lighting)
+- Interactive objects (events, drag & drop, animations)
+- Performance optimizations (instancing, LOD)
+- Asset loading (textures, GLTF models)
+- Custom shaders with real-time controls
+- Advanced rendering (portals, layers)
 
 ### Working on Core Library
 
