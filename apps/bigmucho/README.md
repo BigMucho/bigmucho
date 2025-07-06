@@ -1,80 +1,200 @@
-# BigMucho
+# BigMucho - React Three Fiber Showcase
 
-A 3D web application built with react-three-fiber.
+A comprehensive demo application showcasing the features and capabilities of React Three Fiber (R3F).
 
-## Development
+## 🚀 Quick Start
 
-This app is part of the react-three-fiber monorepo. To run it:
+```bash
+# From the monorepo root
+yarn install
+yarn workspace @apps/bigmucho dev
 
-1. From the root of the monorepo:
+# Or from this directory
+yarn dev
+```
 
-   ```bash
-   yarn install
-   yarn dev
-   ```
+Visit `http://localhost:3000`
 
-2. Then start the BigMucho app:
+## 🎯 Features Demonstrated
 
-   ```bash
-   yarn workspace @apps/bigmucho dev
-   ```
+### 1. **Basic Concepts**
 
-   Or navigate to this directory and run:
+- Core hooks: `useFrame`, `useThree`, `useEffect`
+- 3D primitives with Drei helpers (Box, Sphere, Torus)
+- Material properties and lighting
+- Orbital controls with damping
+- HTML overlays in 3D space
+- Leva controls integration
 
-   ```bash
-   cd apps/bigmucho
-   yarn dev
-   ```
+### 2. **Interactive Objects**
 
-The app will start at `http://localhost:3000`
+- Mouse events (click, hover, double-click)
+- Drag and drop with @use-gesture
+- React Spring animations
+- Cursor state management
+- Event propagation and bubbling
+- Pointer missed detection
 
-## Features
+### 3. **Performance Optimizations**
 
-- Built with React 19 and Three.js
-- Uses @react-three/fiber for declarative 3D
-- @react-three/drei for useful helpers
-- Leva for runtime controls
-- Vite for fast development
-- TypeScript for type safety
+- Instanced meshes (1000+ objects)
+- Level of Detail (LOD) rendering
+- On-demand rendering modes
+- Performance stats monitoring
+- Dynamic instance management
+- Optimized render loops
 
-## Project Structure
+### 4. **Asset Loading**
+
+- Texture loading with Suspense
+- PBR material textures
+- GLTF model loading
+- Environment maps
+- Loading progress indicators
+- Error boundaries
+- Asset preloading
+
+### 5. **Custom Shaders**
+
+- GLSL vertex shaders
+- GLSL fragment shaders
+- Uniform management
+- Wave displacement effects
+- Gradient and rim lighting
+- Procedural noise textures
+- Real-time shader updates
+
+### 6. **Advanced Rendering**
+
+- Render-to-texture portals
+- Multiple scenes
+- Camera layers
+- Dynamic viewports
+- Scene composition
+- Custom render targets
+
+## 📁 Project Structure
 
 ```
 bigmucho/
 ├── src/
-│   ├── components/     # Reusable 3D components
-│   ├── scenes/         # Scene compositions
-│   ├── App.tsx         # Main app component
+│   ├── scenes/         # Demo scenes
+│   │   ├── BasicScene.tsx      # Core R3F concepts
+│   │   ├── InteractiveScene.tsx # Event handling
+│   │   ├── PerformanceScene.tsx # Optimizations
+│   │   ├── LoadersScene.tsx    # Asset loading
+│   │   ├── ShadersScene.tsx    # Custom shaders
+│   │   └── PortalsScene.tsx    # Advanced rendering
+│   ├── App.tsx         # Main app with navigation
+│   ├── App.css         # Navigation styles
 │   ├── main.tsx        # Entry point
 │   └── index.css       # Global styles
 ├── public/             # Static assets
-├── index.html          # HTML template
-└── vite.config.ts      # Vite configuration
+├── vercel.json         # Deployment config
+├── vite.config.ts      # Build configuration
+└── package.json        # Dependencies
 ```
 
-## Building
+## 🛠 Tech Stack
 
-```bash
-yarn build
-```
+- **React 19** - Latest React with Suspense
+- **Three.js** - 3D graphics library
+- **React Three Fiber** - React renderer for Three.js
+- **@react-three/drei** - Useful helpers and abstractions
+- **Leva** - GUI controls for React
+- **@react-spring/three** - Animation library
+- **@use-gesture/react** - Gesture handling
+- **Vite** - Build tool with HMR
+- **TypeScript** - Type safety
 
-## Troubleshooting
+## ⚡ Performance
 
-### Vite Configuration
+Optimized production build:
 
-This app includes a critical configuration in `vite.config.ts` to prevent duplicate React instances in the monorepo:
+- React/ReactDOM: ~12KB
+- Three.js: ~689KB
+- React Three Fiber: ~320KB
+- **Total: ~1MB gzipped**
+
+### Build Optimizations
 
 ```typescript
+// vite.config.ts
+build: {
+  rollupOptions: {
+    output: {
+      manualChunks: {
+        'react-vendor': ['react', 'react-dom'],
+        'three-vendor': ['three'],
+        'r3f-vendor': ['@react-three/fiber', '@react-three/drei'],
+      },
+    },
+  },
+}
+```
+
+## 🚀 Commands
+
+```bash
+# Development
+yarn dev              # Start dev server
+
+# Building
+yarn build            # Build for production
+yarn preview          # Preview production build
+
+# Analysis
+yarn build            # Generates stats.html
+```
+
+## 🔧 Troubleshooting
+
+### Duplicate React Instances
+
+This app includes critical configuration to prevent duplicate React instances:
+
+```typescript
+// vite.config.ts
 resolve: {
   dedupe: ['react', 'react-dom', '@react-three/fiber'],
 }
 ```
 
-Without this, you may encounter "R3F: Hooks can only be used within the Canvas component!" errors.
+Without this, you'll see: "R3F: Hooks can only be used within the Canvas component!"
 
-## Adding Components
+## 📚 Learning Path
 
-1. Create new components in `src/components/`
-2. Create scenes in `src/scenes/`
-3. Use Leva controls for runtime tweaking
-4. Leverage @react-three/drei for common patterns
+1. Start with **Basic Concepts** to understand core R3F hooks
+2. Explore **Interactive Objects** for event handling
+3. Study **Performance** scene for optimization techniques
+4. Load assets with **Loaders** scene
+5. Create effects in **Shaders** scene
+6. Advanced techniques in **Portals** scene
+
+## 🎮 Development Tips
+
+1. Use Leva controls to experiment with settings
+2. Check console for event logs in Interactive scene
+3. Monitor Stats panel in Performance scene
+4. Try different environments in Loaders scene
+5. Adjust shader parameters in real-time
+
+## 📦 Deployment
+
+Configured for Vercel deployment:
+
+```json
+// vercel.json
+{
+  "buildCommand": "yarn workspace @apps/bigmucho build",
+  "outputDirectory": "apps/bigmucho/dist"
+}
+```
+
+## 🔗 Resources
+
+- [React Three Fiber Docs](https://docs.pmnd.rs/react-three-fiber)
+- [Three.js Docs](https://threejs.org/docs)
+- [Drei Storybook](https://drei.pmnd.rs/)
+- [R3F Examples](https://docs.pmnd.rs/react-three-fiber/examples/showcase)
+- [GLSL Shaders](https://thebookofshaders.com/)
